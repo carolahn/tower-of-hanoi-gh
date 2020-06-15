@@ -36,7 +36,7 @@ function checkWinner() {
     verificar_ordem_final_discos
     
 }
-
+//Carol: vou trabalhar aqui /////////////
 function resetGame() {
     // limpar as torres
 }
