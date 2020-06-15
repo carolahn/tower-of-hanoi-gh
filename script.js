@@ -36,9 +36,16 @@ function checkWinner() {
     verificar_ordem_final_discos
     
 }
-//Carol: vou trabalhar aqui /////////////
-function resetGame() {
-    // limpar as torres
+//Carol: vou trabalhar aqui ///////////// limpar as torres
+function resetGame(nMoves,third) {
+    first = [];
+    second = [];
+    third = [];
+    const place = document.getElementById('TORRE_INICIAL'); //mudar o nome do id depois
+    place.appendChild(disco4);
+    place.appendChild(disco3);
+    place.appendChild(disco2);
+    place.appendChild(disco1);
 }
 
 function main() {
