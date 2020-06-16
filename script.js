@@ -60,19 +60,20 @@ function PrimeiroClick() {
 ////////////////////// FUNÇÃO SEGUNDO CLICK (DESTINO) /////////////////
 function SegundoClick() {
     towers.addEventListener('click', function(evento) {
+        // verificar disco de origem selecionado
         if (evento.target.classList.contains('start')) {
             TowerFinal = first
-            console.log('start selected')
+            console.log('DESTINO: start selected')
         }
 
         if (evento.target.classList.contains('offset')) {
             TowerFinal = second
-            console.log('offset selected')
+            console.log('DESTINO: offset selected')
         }
 
         if (evento.target.classList.contains('end')) {
             TowerFinal = third
-            console.log('end selected')
+            console.log('DESTINO: end selected')
         } 
     })
 }
@@ -113,12 +114,10 @@ function resetGame() {
 ////////////////////// FUNÇÃO PRINCIPAL /////////////////
 window.onload = main
 function main() {
-    for (let start = 1; start <= 4; start++) {
-        first.push(`disco${start}`)
-    }
 
-    const DiscoSelecionado = pegarDisco()
+    const DiscoSelecionado = pegarDisco() // variavel e função temporária apenas para testes.
 
+    // condição falhando, deve ser consertada
     PrimeiroClick()
     if (towerStart !== '') {
         SegundoClick()
