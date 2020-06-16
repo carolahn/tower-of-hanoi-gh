@@ -1,16 +1,11 @@
-const first = []
-const second = []
-const third = []
-
-// const discos = document.getElementById('disks')
 const disco1 = document.getElementById('disc1')
 const disco2 = document.getElementById('disc2')
 const disco3 = document.getElementById('disc3')
 const disco4 = document.getElementById('disc4')
 
-
 let movimentos = 0
 const wins = 0
+
 
 var count = 0
 
@@ -68,7 +63,9 @@ function moveDisco (event) {
     
     if (count > 1){
         let valido = validaMov(move) //funcao para validar o movimento
-        if (valido == true) {//se for valido, mudar a posição do disco no disco (appendChild)
+        if (valido == true) {
+            AdicionarDisco(move)
+            //se for valido, mudar a posição do disco no disco (appendChild)
             //criar uma função
         }
         console.log(move)
@@ -94,63 +91,12 @@ function validaMov(move) {
     }
     return true
 }
-// Pegando todas os cliques nas torres, falta implementar a função principal
 
-////////////////////// FUNÇÃO PRIMEIRO CLICK (ORIGEM) /////////////////
-function PrimeiroClick() {
-    towers.addEventListener('click', function(evento) {
-        if (evento.target.classList.contains('start')) {
-            TowerStart = first
-            console.log('start selected')
-        }
-
-        if (evento.target.classList.contains('offset')) {
-            TowerStart = second
-            console.log('offset selected')
-        }
-
-        if (evento.target.classList.contains('end')) {
-            TowerStart = third
-            console.log('end selected')
-        } 
-    })
+function AdicionarDisco(move) {
+    let torreDestino = move[1][0]
+    let disco = move[0][2]
+    torreDestino.appendChild(disco)
 }
-
-////////////////////// FUNÇÃO SEGUNDO CLICK (DESTINO) /////////////////
-function SegundoClick() {
-    towers.addEventListener('click', function(evento) {
-        // verificar disco de origem selecionado
-        if (evento.target.classList.contains('start')) {
-            TowerFinal = first
-            console.log('DESTINO: start selected')
-        }
-
-        if (evento.target.classList.contains('offset')) {
-            TowerFinal = second
-            console.log('DESTINO: offset selected')
-        }
-
-        if (evento.target.classList.contains('end')) {
-            TowerFinal = third
-            console.log('DESTINO: end selected')
-        } 
-    })
-}
-
-
-////////////////////// Função, que recebe a origem com o disco, e manda para o destino fazendo os testes /////////////////
-function moveDisc(disco) {
-    const destino = TowerFinal
-
-    if (destino.length === 0) {
-        destino.push(disco)
-    }
-
-    if (disco < discoDestino) {
-        destino.push(disco)
-    }
-}
-
 
 // Função checa se venceu, verificando o numero minimo de movimentos, e verifica as torres
 function checkWinner() {
@@ -164,6 +110,8 @@ function checkWinner() {
         alert('Perdeu!')
     }    
 }
+
+
 // Função que limpa o número de movimentos e recoloca os discos na Tower Start
 function resetGame() {
     movimentos = 0;
@@ -182,8 +130,6 @@ function resetGame() {
 ////////////////////// FUNÇÃO PRINCIPAL /////////////////
 window.onload = main
 function main() {
-
-    // const TorreSelecionada = pegarDisco() // variavel e função temporária apenas para testes.
 
     const towers = document.getElementById('towers')
     towers.addEventListener('click', moveDisco)
