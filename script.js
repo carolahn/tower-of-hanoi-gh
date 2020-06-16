@@ -3,27 +3,25 @@ const disco2 = document.getElementById('disc2')
 const disco3 = document.getElementById('disc3')
 const disco4 = document.getElementById('disc4')
 
-let movimentos = 0
 const wins = 0
 
-
 var count = 0
-
-let TowerStart = '' 
-let TowerFinal = ''
+let countMovimentos = 0
 
 var move = []
 
-const towers = document.getElementById('towers')
-
 // capturar o torre selecionada e verificar o disco do topo e seu tamanho.
 function pegarDisco(evento) {
-    // towers.addEventListener('click', function(evento) {
         if (evento.target.classList.contains('start') | evento.target.parentElement.classList.contains('start')) {
             var torre = document.getElementById('tStart')
             var discosTorre = torre.childElementCount
-            var disco = torre.lastElementChild
-            var DiscoTamanho = disco.clientWidth
+            if (discosTorre !== 0) {
+                var disco = torre.lastElementChild
+                var DiscoTamanho = disco.clientWidth
+            } else {
+                var disco = 'sem disco'
+                var DiscoTamanho = 0
+            }
         }
 
         if (evento.target.classList.contains('offset') | evento.target.parentElement.classList.contains('offset')) {
@@ -49,30 +47,30 @@ function pegarDisco(evento) {
                 var DiscoTamanho = 0
             }
         }
-
         let movimentos = [torre, discosTorre, disco, DiscoTamanho]
-        // console.log(movimentos)
         count++
         return movimentos
-    // })
 }
 
 // Função para pegar os dois clicks
 function moveDisco (event) {
     move[count] = pegarDisco(event)
-    
     if (count > 1){
         let valido = validaMov(move) //funcao para validar o movimento
         if (valido == true) {
             AdicionarDisco(move)
             //se for valido, mudar a posição do disco no disco (appendChild)
-            //criar uma função
         }
-        console.log(move)
+
+        let contador = document.getElementById('mov')
+        contador.textContent = countMovimentos
+
+        if (countMovimentos > 15) {
+            checkWinner()
+        }
         count = 0
         move = []
     }
-
 }
 
 function validaMov(move) {
@@ -96,19 +94,20 @@ function AdicionarDisco(move) {
     let torreDestino = move[1][0]
     let disco = move[0][2]
     torreDestino.appendChild(disco)
+    countMovimentos++
 }
 
 // Função checa se venceu, verificando o numero minimo de movimentos, e verifica as torres
 function checkWinner() {
-    if (movimentos === 15) {
-        if (second.length === 4) {
-            alert('winner!')
-        } else if (third.length === 4) {
-            alert('winner!')
-        }
+    let torreFinal = move[1][0]
+    let contagemDiscos = torreFinal.childElementCount
+    console.log(contagemDiscos)
+    if (contagemDiscos == 4) {
+        alert('Winner!')
     } else {
-        alert('Perdeu!')
-    }    
+        alert('Movimentos mínimos utrapassados!')
+    }
+     
 }
 
 
@@ -136,19 +135,6 @@ function main() {
 
     const towers = document.getElementById('towers')
     towers.addEventListener('click', moveDisco)
-    // condição falhando, deve ser consertada
 
-    // PrimeiroClick()
-    // if (towerStart !== '') {
-    //     SegundoClick()
-    // }
-    
-    // verificarTorre
-    // verificaDisco
-    // moveDisc()
-
-    // checkWinner()
-
-    // resetGame()
-    // document.getElementById('restart').onclick = resetGame()
+    document.getElementById('restart').onclick = resetGame()
 }
