@@ -3,10 +3,14 @@ const second = []
 const third = []
 
 const discos = document.getElementById('disks')
-const disco1 = document.getElementsByClassName("primeiro")
-const disco2 = document.getElementsByClassName("segundo")
-const disco3 = document.getElementsByClassName("terceiro")
-const disco4 = document.getElementsByClassName("quarto")
+const disco1 = document.getElementById('disc1')
+const disco2 = document.getElementById('disc2')
+const disco3 = document.getElementById('disc3')
+const disco4 = document.getElementById('disc4')
+// const disco1 = document.getElementsByClassName("primeiro")
+// const disco2 = document.getElementsByClassName("segundo")
+// const disco3 = document.getElementsByClassName("terceiro")
+// const disco4 = document.getElementsByClassName("quarto")
 
 let movimentos = 0
 const wins = 0
@@ -105,16 +109,18 @@ function checkWinner() {
         alert('Perdeu!')
     }    
 }
-//Carol: vou trabalhar aqui ///////////// limpar as torres
-function resetGame(nMoves,third) {
+// Função que limpa o número de movimentos e recoloca os discos na Tower Start
+function resetGame() {
+    movimentos = 0;
     first = [];
     second = [];
     third = [];
-    const place = document.getElementById('TORRE_INICIAL'); //mudar o nome do id depois
-    place.appendChild(disco4);
-    place.appendChild(disco3);
-    place.appendChild(disco2);
+    const place = document.getElementById('towers').firstElementChild; //mudar o nome do id depois
+    console.log(place)
     place.appendChild(disco1);
+    place.appendChild(disco2);
+    place.appendChild(disco3);
+    place.appendChild(disco4);
 }
 
 
@@ -137,4 +143,5 @@ function main() {
     // checkWinner()
 
     // resetGame()
+    document.getElementById('restart').onclick = resetGame()
 }
