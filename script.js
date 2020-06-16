@@ -7,10 +7,7 @@ const disco1 = document.getElementById('disc1')
 const disco2 = document.getElementById('disc2')
 const disco3 = document.getElementById('disc3')
 const disco4 = document.getElementById('disc4')
-// const disco1 = document.getElementsByClassName("primeiro")
-// const disco2 = document.getElementsByClassName("segundo")
-// const disco3 = document.getElementsByClassName("terceiro")
-// const disco4 = document.getElementsByClassName("quarto")
+
 
 let movimentos = 0
 const wins = 0
@@ -18,44 +15,54 @@ const wins = 0
 let TowerStart = '' 
 let TowerFinal = ''
 
-// tower.addEventListener('click',funcao pegaDisco
 
-// function pegaDisco{
-//     qual é a torre? 
-//         event.target.classList.contais(offset)
-//         torre = document.getElementById
-//     qual é o disco do topo?
-//         disco = torre.lastElementChild
-//         disco.clientWidth
-//     movimentos [[torre, disco, tamanho do disco], [torre, disco, tamanho do disco]]
+const towers = document.getElementById('towers')
 
-//     chama validaMove
-//     chama displayMove
-// }
+// capturar o torre selecionada e verificar o disco do topo e seu tamanho.
+function pegarDisco() {
+    towers.addEventListener('click', function(evento) {
+        if (evento.target.classList.contains('start')) {
+            var torre = document.getElementById('tStart')
+            var discosTorre = torre.childElementCount
+            var disco = torre.lastElementChild
+            var DiscoTamanho = disco.clientWidth
+        }
 
+        if (evento.target.classList.contains('offset')) {
+            var torre = document.getElementById('tOffset')
+            var discosTorre = torre.childElementCount
+            if (discosTorre !== 0) {
+                var disco = torre.lastElementChild
+                var DiscoTamanho = disco.clientWidth
+            } else {
+                var disco = 'sem disco'
+                var DiscoTamanho = 'sem tamanho'
+            }
+        }
+        
+        if (evento.target.classList.contains('end')) {
+            var torre = document.getElementById('tEnd')
+            var discosTorre = torre.childElementCount
+            if (discosTorre !== 0) {
+                var disco = torre.lastElementChild
+                var DiscoTamanho = disco.clientWidth
+            } else {
+                var disco = 'sem disco'
+                var DiscoTamanho = 'sem tamanho'
+            }
+        }
 
-////////////////////// Pegar o disco, para verificar se é possivel movê-lo /////////////////
-// function pegarDisco() {
-//     discos.addEventListener('click', function (evento) {
-//         if (evento.target.classList.contains('primeiro')) {
-//             console.log('primeiro selecionado')
-//         }
-//         if (evento.target.classList.contains('segundo')) {
-//             console.log('segundo selecionado')
-//         }
-//         if (evento.target.classList.contains('terceiro')) {
-//             console.log('terceiro selecionado')
-//         }
-//         if (evento.target.classList.contains('quarto')) {
-//             console.log('quarto selecionado')
-//         }
-//     })
-// }
+        let movimentos = [torre, discosTorre, disco, DiscoTamanho]
+        console.log(movimentos)
+        return movimentos
+    })
+}
+
 
 
 
 // Pegando todas os cliques nas torres, falta implementar a função principal
-const towers = document.getElementById('towers')
+
 ////////////////////// FUNÇÃO PRIMEIRO CLICK (ORIGEM) /////////////////
 function PrimeiroClick() {
     towers.addEventListener('click', function(evento) {
@@ -143,13 +150,14 @@ function resetGame() {
 window.onload = main
 function main() {
 
-    const DiscoSelecionado = pegarDisco() // variavel e função temporária apenas para testes.
+    const TorreSelecionada = pegarDisco() // variavel e função temporária apenas para testes.
 
     // condição falhando, deve ser consertada
-    PrimeiroClick()
-    if (towerStart !== '') {
-        SegundoClick()
-    }
+
+    // PrimeiroClick()
+    // if (towerStart !== '') {
+    //     SegundoClick()
+    // }
     
     // verificarTorre
     // verificaDisco
