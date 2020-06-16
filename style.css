@@ -37,16 +37,24 @@
 /* Área para organizar as torres */
 #towers {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
 .torre {
-    margin: 50px 150px 0px 150px; 
+    /* margin: 50px 150px 0px 150px;  */
     background: black;
-    width: 1rem;
+    width: 200px;
     height: 300px;
     cursor: pointer;
+    border: 5px solid blue;
+
+}
+#tStart, #tOffset, #tEnd {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
 }
 
 /* Área para base das torre, sem função apenas para decoração; */
@@ -65,18 +73,15 @@
 }
 
 /* Área para configuração dos discos*/
-#disks {
+/* #disks {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-}
+    flex-direction: column-reverse;
+} */
 
 /* Temporarios, apenas para testes, precisa implementar uma seleção para posicionar os discos com javascript */
 .disco {
-    position: relative;
-    top: 350px;
-    left: -317px;
     height: 20px;
     border-radius: 8px;
     border: 4px solid black;
@@ -85,20 +90,20 @@
 
 .primeiro {
     background: rosybrown;
-    width: 40px;
+    width: 160px;
 }
 
 .segundo {
     background: royalblue;
-    width: 80px;
+    width: 120px;
 }
 
 .terceiro {
     background: sienna;
-    width: 120px;
+    width: 80px;
 }
 
 .quarto {
     background: teal;
-    width: 160px;
+    width: 40px;
 }
