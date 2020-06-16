@@ -2,7 +2,7 @@ const first = []
 const second = []
 const third = []
 
-const discos = document.getElementById('disks')
+// const discos = document.getElementById('disks')
 const disco1 = document.getElementById('disc1')
 const disco2 = document.getElementById('disc2')
 const disco3 = document.getElementById('disc3')
@@ -18,24 +18,39 @@ const wins = 0
 let TowerStart = '' 
 let TowerFinal = ''
 
+// tower.addEventListener('click',funcao pegaDisco
+
+// function pegaDisco{
+//     qual é a torre? 
+//         event.target.classList.contais(offset)
+//         torre = document.getElementById
+//     qual é o disco do topo?
+//         disco = torre.lastElementChild
+//         disco.clientWidth
+//     movimentos [[torre, disco, tamanho do disco], [torre, disco, tamanho do disco]]
+
+//     chama validaMove
+//     chama displayMove
+// }
+
 
 ////////////////////// Pegar o disco, para verificar se é possivel movê-lo /////////////////
-function pegarDisco() {
-    discos.addEventListener('click', function (evento) {
-        if (evento.target.classList.contains('primeiro')) {
-            console.log('primeiro selecionado')
-        }
-        if (evento.target.classList.contains('segundo')) {
-            console.log('segundo selecionado')
-        }
-        if (evento.target.classList.contains('terceiro')) {
-            console.log('terceiro selecionado')
-        }
-        if (evento.target.classList.contains('quarto')) {
-            console.log('quarto selecionado')
-        }
-    })
-}
+// function pegarDisco() {
+//     discos.addEventListener('click', function (evento) {
+//         if (evento.target.classList.contains('primeiro')) {
+//             console.log('primeiro selecionado')
+//         }
+//         if (evento.target.classList.contains('segundo')) {
+//             console.log('segundo selecionado')
+//         }
+//         if (evento.target.classList.contains('terceiro')) {
+//             console.log('terceiro selecionado')
+//         }
+//         if (evento.target.classList.contains('quarto')) {
+//             console.log('quarto selecionado')
+//         }
+//     })
+// }
 
 
 
