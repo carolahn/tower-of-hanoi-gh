@@ -65,7 +65,7 @@ function moveDisco (event) {
         let contador = document.getElementById('mov')
         contador.textContent = countMovimentos
 
-        if (countMovimentos > 15) {
+        if (countMovimentos >= 15) {
             checkWinner()
         }
         count = 0
