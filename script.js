@@ -12,7 +12,6 @@ var move = []
 
 // capturar o torre selecionada e verificar o disco do topo e seu tamanho.
 function pegarDisco(evento) {
-    // towers.addEventListener('click', function(evento) {
         if (evento.target.classList.contains('start') | evento.target.parentElement.classList.contains('start')) {
             var torre = document.getElementById('tStart')
             var discosTorre = torre.childElementCount
@@ -48,7 +47,6 @@ function pegarDisco(evento) {
                 var DiscoTamanho = 0
             }
         }
-
         let movimentos = [torre, discosTorre, disco, DiscoTamanho]
         count++
         return movimentos
@@ -62,9 +60,6 @@ function moveDisco (event) {
         if (valido == true) {
             AdicionarDisco(move)
             //se for valido, mudar a posição do disco no disco (appendChild)
-            //criar uma função
-            console.log(move)
-
         }
 
         let contador = document.getElementById('mov')
@@ -140,9 +135,6 @@ function main() {
 
     const towers = document.getElementById('towers')
     towers.addEventListener('click', moveDisco)
-    
-
-
 
     document.getElementById('restart').onclick = resetGame()
 }
