@@ -65,7 +65,7 @@ function moveDisco (event) {
             console.log(move)
 
         }
-        
+
         let contador = document.getElementById('mov')
         contador.textContent = countMovimentos
 
@@ -108,10 +108,9 @@ function checkWinner() {
     console.log(contagemDiscos)
     if (contagemDiscos == 4) {
         alert('Winner!')
-    } 
-    // else {
-    //     alert('Movimentos mínimos utrapassados!')
-    // }
+    } else {
+        alert('Movimentos mínimos utrapassados!')
+    }
      
 }
 
