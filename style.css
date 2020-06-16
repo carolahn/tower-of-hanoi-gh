@@ -1,0 +1,104 @@
+/* Cabeçalho */
+#cabecalho {
+    background: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cabecalho h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Area dos botões para controlar os discos, movimentos e dar restart */
+#buttons {
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 26px;
+}
+
+#buttons #mov {
+    background: blueviolet;
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    margin: 0px 10px;
+}
+
+#buttons #restart {
+    font-size: 16px;
+    height: 50px;
+    width: 100px;
+}
+
+/* Área para organizar as torres */
+#towers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.torre {
+    margin: 50px 150px 0px 150px; 
+    background: black;
+    width: 1rem;
+    height: 300px;
+    cursor: pointer;
+}
+
+/* Área para base das torre, sem função apenas para decoração; */
+#floor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bar {
+    justify-self: space-between;
+    background: black;
+    width: 220px;
+    height: 1rem;
+    margin: 0px 48px;
+}
+
+/* Área para configuração dos discos*/
+#disks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Temporarios, apenas para testes, precisa implementar uma seleção para posicionar os discos com javascript */
+.disco {
+    position: relative;
+    top: 350px;
+    left: -317px;
+    height: 20px;
+    border-radius: 8px;
+    border: 4px solid black;
+    cursor: pointer;
+}
+
+.primeiro {
+    background: rosybrown;
+    width: 40px;
+}
+
+.segundo {
+    background: royalblue;
+    width: 80px;
+}
+
+.terceiro {
+    background: sienna;
+    width: 120px;
+}
+
+.quarto {
+    background: teal;
+    width: 160px;
+}

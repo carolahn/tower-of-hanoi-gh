@@ -2,39 +2,107 @@ const first = []
 const second = []
 const third = []
 
-const disco1 = document.getElementById("25")
-const disco2 = document.getElementById("50")
-const disco3 = document.getElementById("75")
-const disco4 = document.getElementById("100")
+const discos = document.getElementById('disks')
+const disco1 = document.getElementsByClassName("primeiro")
+const disco2 = document.getElementsByClassName("segundo")
+const disco3 = document.getElementsByClassName("terceiro")
+const disco4 = document.getElementsByClassName("quarto")
 
+let movimentos = 0
 const wins = 0
 
-function moveDisc() {
-    const destino = moveTo()
+let TowerStart = '' 
+let TowerFinal = ''
 
-    if (torre_vazia == true) {
-        alert('invalid')
+
+////////////////////// Pegar o disco, para verificar se é possivel movê-lo /////////////////
+function pegarDisco() {
+    discos.addEventListener('click', function (evento) {
+        if (evento.target.classList.contains('primeiro')) {
+            console.log('primeiro selecionado')
+        }
+        if (evento.target.classList.contains('segundo')) {
+            console.log('segundo selecionado')
+        }
+        if (evento.target.classList.contains('terceiro')) {
+            console.log('terceiro selecionado')
+        }
+        if (evento.target.classList.contains('quarto')) {
+            console.log('quarto selecionado')
+        }
+    })
+}
+
+
+
+// Pegando todas os cliques nas torres, falta implementar a função principal
+const towers = document.getElementById('towers')
+////////////////////// FUNÇÃO PRIMEIRO CLICK (ORIGEM) /////////////////
+function PrimeiroClick() {
+    towers.addEventListener('click', function(evento) {
+        if (evento.target.classList.contains('start')) {
+            TowerStart = first
+            console.log('start selected')
+        }
+
+        if (evento.target.classList.contains('offset')) {
+            TowerStart = second
+            console.log('offset selected')
+        }
+
+        if (evento.target.classList.contains('end')) {
+            TowerStart = third
+            console.log('end selected')
+        } 
+    })
+}
+
+////////////////////// FUNÇÃO SEGUNDO CLICK (DESTINO) /////////////////
+function SegundoClick() {
+    towers.addEventListener('click', function(evento) {
+        if (evento.target.classList.contains('start')) {
+            TowerFinal = first
+            console.log('start selected')
+        }
+
+        if (evento.target.classList.contains('offset')) {
+            TowerFinal = second
+            console.log('offset selected')
+        }
+
+        if (evento.target.classList.contains('end')) {
+            TowerFinal = third
+            console.log('end selected')
+        } 
+    })
+}
+
+
+////////////////////// Função, que recebe a origem com o disco, e manda para o destino fazendo os testes /////////////////
+function moveDisc(disco) {
+    const destino = TowerFinal
+
+    if (destino.length === 0) {
+        destino.push(disco)
     }
 
     if (disco < discoDestino) {
         destino.push(disco)
     }
-
-
-
-    // movimentos = 2 ^ 4 - 1
 }
 
-function moveTo(evt) {
-    evt.currentTarget
 
-    return containerID
-}
-
+// Função checa se venceu, verificando o numero minimo de movimentos, e verifica as torres
 function checkWinner() {
-    verificar_numero_de_movimentos
-    verificar_ordem_final_discos
-    
+    if (movimentos === 15) {
+        if (second.length === 4) {
+            alert('winner!')
+        } else if (third.length === 4) {
+            alert('winner!')
+        }
+    } else {
+        alert('Perdeu!')
+    }    
 }
 //Carol: vou trabalhar aqui ///////////// limpar as torres
 function resetGame(nMoves,third) {
@@ -48,16 +116,26 @@ function resetGame(nMoves,third) {
     place.appendChild(disco1);
 }
 
+
+////////////////////// FUNÇÃO PRINCIPAL /////////////////
+window.onload = main
 function main() {
-    const container = document.getElementById("cointanerFirst")
-    container.addEventListener('click', moveDisc)
-
-    
-
-    if (checkWinner() !== -1) {
-        wins++
-        resetGame()
+    for (let start = 1; start <= 4; start++) {
+        first.push(`disco${start}`)
     }
 
+    const DiscoSelecionado = pegarDisco()
 
+    PrimeiroClick()
+    if (towerStart !== '') {
+        SegundoClick()
+    }
+    
+    // verificarTorre
+    // verificaDisco
+    // moveDisc()
+
+    // checkWinner()
+
+    // resetGame()
 }
