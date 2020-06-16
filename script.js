@@ -19,14 +19,14 @@ const towers = document.getElementById('towers')
 // capturar o torre selecionada e verificar o disco do topo e seu tamanho.
 function pegarDisco(evento) {
     // towers.addEventListener('click', function(evento) {
-        if (evento.target.classList.contains('start')) {
+        if (evento.target.classList.contains('start') | evento.target.parentElement.classList.contains('start')) { //target pode ser a torre ou o disco
             var torre = document.getElementById('tStart')
             var discosTorre = torre.childElementCount
             var disco = torre.lastElementChild
             var DiscoTamanho = disco.clientWidth
         }
 
-        if (evento.target.classList.contains('offset')) {
+        if (evento.target.classList.contains('offset') | evento.target.parentElement.classList.contains('offset')) {
             var torre = document.getElementById('tOffset')
             var discosTorre = torre.childElementCount
             if (discosTorre !== 0) {
@@ -38,7 +38,7 @@ function pegarDisco(evento) {
             }
         }
         
-        if (evento.target.classList.contains('end')) {
+        if (evento.target.classList.contains('end') | evento.target.parentElement.classList.contains('end')) {
             var torre = document.getElementById('tEnd')
             var discosTorre = torre.childElementCount
             if (discosTorre !== 0) {
