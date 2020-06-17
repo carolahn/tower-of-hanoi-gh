@@ -3,6 +3,27 @@ let countMovimentos = 0
 
 var move = []
 
+function tempo() {
+    let seconds = 0
+    let minutes = 0
+
+    window.timer = setInterval(function () {
+        if (seconds == 59) {
+            minutes++
+            seconds = 0
+        } else {
+            seconds++
+        }
+        let timerID = document.getElementById('timerID')
+        timerID.textContent = (String(minutes).padStart(2, '0')) + ':' + (String(seconds).padStart(2, '0'))
+
+    },  1000)
+}
+
+function stopTimer() {
+    clearInterval(timer)
+}
+
 function criarTorres() {
     const towers = document.getElementById('towers')
 
@@ -129,10 +150,10 @@ function checkWinner() {
     console.log(contagemDiscos)
     if (contagemDiscos == 4) {
         alert('Winner!')
+        stopTimer()
     } else {
         alert('Movimentos mínimos utrapassados!')
     }
-     
 }
 
 
@@ -148,13 +169,15 @@ function resetGame() {
     place.appendChild(disco3);
     place.appendChild(disco4);
 
+    stopTimer()
+    const torreStart = document.getElementById('tStart')
+    torreStart.addEventListener('click', tempo, {once: true})
+
     const pontos = document.getElementById('mov')
     countMovimentos = 0
     pontos.innerHTML = '0';
 
-
 }
-
 
 ////////////////////// FUNÇÃO PRINCIPAL /////////////////
 window.onload = main
@@ -166,6 +189,9 @@ function main() {
     
     const towers = document.getElementById('towers')
     towers.addEventListener('click', moveDisco)
+
+    const torreStart = document.getElementById('tStart')
+    torreStart.addEventListener('click', tempo, {once: true})
 
     const restart = document.getElementById('restart')
     restart.addEventListener('click', resetGame)
