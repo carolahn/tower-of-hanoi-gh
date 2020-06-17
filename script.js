@@ -166,8 +166,13 @@ function checkWinner() {
     if (contagemDiscos == 4) {
         place.innerHTML = "Parabéns! Você venceu!"
         stopTimer()
+        const towers = document.getElementById('towers')
+        towers.removeEventListener('click', moveDisco)
+        
     } else {
         place.innerHTML = "Número máximo de movimentos foi excedido!"
+        const towers = document.getElementById('towers')
+        towers.removeEventListener('click', moveDisco)
     }
 }
 
@@ -196,6 +201,9 @@ function resetGame() {
 
     const local = document.getElementById('mensagem')
     local.innerHTML = ""
+
+    const towers = document.getElementById('towers')
+    towers.addEventListener('click', moveDisco)
 }
 
 ////////////////////// FUNÇÃO PRINCIPAL /////////////////

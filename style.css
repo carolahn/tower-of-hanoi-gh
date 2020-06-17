@@ -52,14 +52,6 @@ body {
     flex-direction: row;
 }
 
-#buttons #mov {
-    /* background: blueviolet;
-    width: 50px;
-    height: 50px;
-    border-radius: 4px; */
-    /* margin: 0px 10px; */
-}
-
 #buttons #restart {
     font-size: 16px;
     height: 50px;
@@ -88,7 +80,7 @@ body {
     width: 200px;
     height: 300px;
     cursor: pointer;
-    margin-left: 1rem; 
+    /* margin-left: 1rem;  */
     z-index: 2;
 }
 
@@ -172,15 +164,6 @@ div#tStart:hover, div#tOffset:hover, div#tEnd:hover {
     top: 0px;
 }
 
-/* Área para configuração dos discos*/
-/* #disks {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column-reverse;
-} */
-
-/* Temporarios, apenas para testes, precisa implementar uma seleção para posicionar os discos com javascript */
 .disco {
     height: 20px;
     border-radius: 8px;
