@@ -98,17 +98,19 @@ function moveDisco (event) {
     const place = document.getElementById('mensagem')
     move[count] = pegarDisco(event)
     if (count > 1){
-        let valido = validaMov(move) //funcao para validar o movimento
-        if (valido == true) {
-            place.innerHTML = ""
-            let disco = move[0][2]
-            if (disco !== 'sem disco') {
-                AdicionarDisco(move)
-                //se for valido, mudar a posição do disco no disco (appendChild)
-            }else{
-                
-                place.innerHTML = "ERRO: movimento inválido"
-            }
+        if (move[0][0] !== undefined && move[1][1] !== undefined) {
+            let valido = validaMov(move) //funcao para validar o movimento
+            if (valido == true) {
+                place.innerHTML = ""
+                let disco = move[0][2]
+                if (disco !== 'sem disco') {
+                    AdicionarDisco(move)
+                    //se for valido, mudar a posição do disco no disco (appendChild)
+                }else{
+                    
+                    place.innerHTML = "ERRO: movimento inválido"
+                }
+        }
         }
 
         let contador = document.getElementById('mov')
@@ -129,9 +131,7 @@ function validaMov(move) {
     if (startTorre == endTorre){
         console.log("ERRO: movimento inválido") //adicionar um alerta para o usuário
         place.innerHTML = "ERRO: movimento inválido"
-        // let msg = document.createElement('span')
-        // msg.innerText = "ERRO: movimento inválido"
-        // place.appendChild(msg)
+        
         return false
     }
 
@@ -141,9 +141,7 @@ function validaMov(move) {
     if (endDisc != 0 && startDisc > endDisc) {
         console.log("ERRO: movimento inválido") //adicionar um alerta para o usuário
         place.innerHTML = "ERRO: movimento inválido"
-        // let msg = document.createElement('span')
-        // msg.innerText = "ERRO: movimento inválido"
-        // place.appendChild(msg)
+
         return false
     }
 
@@ -166,13 +164,8 @@ function checkWinner() {
     if (contagemDiscos == 4) {
         place.innerHTML = "Parabéns! Você venceu!"
         stopTimer()
-        const towers = document.getElementById('towers')
-        towers.removeEventListener('click', moveDisco)
-        
     } else {
         place.innerHTML = "Número máximo de movimentos foi excedido!"
-        const towers = document.getElementById('towers')
-        towers.removeEventListener('click', moveDisco)
     }
 }
 
@@ -201,9 +194,6 @@ function resetGame() {
 
     const local = document.getElementById('mensagem')
     local.innerHTML = ""
-
-    const towers = document.getElementById('towers')
-    towers.addEventListener('click', moveDisco)
 }
 
 ////////////////////// FUNÇÃO PRINCIPAL /////////////////
