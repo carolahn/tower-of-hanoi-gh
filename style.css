@@ -1,31 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Piedra&display=swap');
+/* font-family: 'Piedra', cursive; */
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: rgba(188, 143, 143, 0.493);
+}
+
+#main {
+    background-color: #ffffff;
+    width: 698px;
+    /* min-width: 700px;*/
+    min-height: 600px; 
+    box-shadow: 4px 4px 4px #666666;
+    border: 1px solid #666666;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 5px;
+    position: relative;
+}
+
 /* Cabeçalho */
 #cabecalho {
-    background: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* background: red; */
+    text-align: center;
+    padding: 1rem;
 }
 
-#cabecalho h1 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+#cabecalho p {
+    font-family: 'Piedra', cursive, Arial, sans-serif;
+    font-size: 2.5rem;
 }
-
 /* Area dos botões para controlar os discos, movimentos e dar restart */
 #buttons {
-    margin: 30px;
+    
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    /* justify-content: center;*/
     align-items: center;
     font-family: Roboto, Arial, sans-serif;
     font-size: 26px;
 }
 
+#buttons div {
+    display: flex;
+    flex-direction: row;
+}
+
 #buttons #mov {
-    background: blueviolet;
+    /* background: blueviolet;
     width: 50px;
     height: 50px;
-    border-radius: 4px;
-    margin: 0px 10px;
+    border-radius: 4px; */
+    /* margin: 0px 10px; */
 }
 
 #buttons #restart {
@@ -34,42 +66,110 @@
     width: 100px;
 }
 
+#mensagem {
+    height: 3rem;
+    text-align: center;
+    padding: 14px;
+}
+
 /* Área para organizar as torres */
 #towers {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    max-width: 698px;
+    min-width: 698px;
+    margin: 0 auto;
+    /* position: relative; */
 }
 
 .torre {
-    /* margin: 50px 150px 0px 150px;  */
-    background: black;
     width: 200px;
     height: 300px;
     cursor: pointer;
-    border: 5px solid blue;
-
+    margin-left: 1rem; 
+    z-index: 2;
 }
+
+div#tStart:hover, div#tOffset:hover, div#tEnd:hover {
+    border-left: 1px solid #66666688;
+    border-top: 1px solid #66666688;
+    box-shadow: 5px 5px 5px #666666;
+    box-sizing: border-box;
+}
+
+#tStart {
+    margin-left: 0;
+}
+
+
 #tStart, #tOffset, #tEnd {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
 }
 
-/* Área para base das torre, sem função apenas para decoração; */
-#floor {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.barraVertical {
+    /* float: left; */
+    width: 10px;
+    height: 280px;
+    background-color: #000000;
+    position: absolute;
 }
 
-#bar {
-    justify-self: space-between;
+#barraStart {
+    left: 128px;
+    top: 208px;
+    z-index: 1;
+}
+
+#barraOffset {
+    left: 344px;
+    top: 208px;
+    z-index: 1;
+}
+
+#barraEnd {
+    left: 560px;
+    top: 208px;
+    z-index: 1;
+}
+
+/* Área para base das torre, sem função apenas para decoração; */
+#floor {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#barStart {
+    position: absolute;
     background: black;
-    width: 220px;
-    height: 1rem;
-    margin: 0px 48px;
+    width: 200px;
+    height: 14px;
+    left: 32px;
+    top: 0px;
+}
+
+#barOffset {
+    position: absolute;
+    background: black;
+    width: 200px;
+    height: 14px;
+    left: 248px;
+    top: 0px;
+}
+
+#barEnd {
+    position: absolute;
+    background: black;
+    width: 200px;
+    height: 14px;
+    left: 465px;
+    top: 0px;
 }
 
 /* Área para configuração dos discos*/
@@ -85,6 +185,7 @@
     height: 20px;
     border-radius: 8px;
     border: 4px solid black;
+    z-index: 3;
 }
 
 .primeiro {
@@ -105,4 +206,18 @@
 .quarto {
     background: teal;
     width: 40px;
+}
+
+footer {
+    color: #666666;
+    text-align: center;
+    margin-top: 60px;
+}
+footer p {
+    margin-top: 0.3rem;
+}
+
+footer a {
+    text-decoration: none;
+    color: #666666;
 }

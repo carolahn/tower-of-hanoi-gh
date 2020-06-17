@@ -9,25 +9,40 @@
 <body>
     <div id="main">
         <header id="cabecalho">
-            <h1>Torre de Hanoi</h1>
+            <p>Torre de Hanoi</p> <hr>
         </header>
             
-    <div id="buttons">
-        <p>Tempo: </p>
-        <div id="timerID">00:00</div>
-        <p>Movimentos: </p>
-        <div id="mov">0</div>
-        <button id="restart">RESTART</button>
-    </div>
+        <div id="buttons">
+            <div>
+                <p>Tempo: &nbsp;</p> 
+                <div id="timerID">00:00</div>
+            </div>
+            <div>
+                <p>Movimentos: &nbsp;</p>
+                <div id="mov">0</div><span>/15</span>
+            </div>
+            
+            <button id="restart">RESTART</button>
+        </div>
 
-    <div id="towers">
-    </div>
+        <div id="mensagem"></div>
 
-    <div id="floor">
-        <id id="bar"></id>
-        <id id="bar"></id>
-        <id id="bar"></id>
-    </div>
+        <div id="towers"></div>
+
+        <div id="barraStart" class="barraVertical"></div>
+        <div id="barraOffset" class="barraVertical"></div>
+        <div id="barraEnd" class="barraVertical"></div>
+
+        <div id="floor">
+            <id id="barStart"></id>
+            <id id="barOffset"></id>
+            <id id="barEnd"></id>
+        </div>
+
+        <footer>
+            <p> by Carol Ahn - <a href="https://www.linkedin.com/in/carolina-ahn-35ab7473" target="_blank">Linkedin</a> | Maicon Lourenço - <a href="https://www.linkedin.com/in/maiconlourenco/" target="_blank">Linkedin</a></p>
+            <p>Kenzie - 2020</p>
+        </footer>
     </div>
     <script src="script.js"></script>
 </body>
