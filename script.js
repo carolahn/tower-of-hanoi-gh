@@ -1,14 +1,34 @@
-const disco1 = document.getElementById('disc1')
-const disco2 = document.getElementById('disc2')
-const disco3 = document.getElementById('disc3')
-const disco4 = document.getElementById('disc4')
-
-const wins = 0
-
 var count = 0
 let countMovimentos = 0
 
 var move = []
+
+function criarTorres() {
+    const towers = document.getElementById('towers')
+
+    const arrIdClass = [['tStart', 'torre start'], ['tOffset', 'torre offset'], ['tEnd', 'torre end']]
+    
+    for (let count = 0; count <= 2; count++) {
+        const tower = document.createElement('div')
+        tower.id = arrIdClass[count][0]
+        tower.className = arrIdClass[count][1]
+        towers.appendChild(tower)
+    }
+}
+
+function criarDiscos() {
+    const towerStart = document.getElementById('tStart')
+    
+    const arrIdClass = [['disc1', 'disco primeiro'], ['disc2', 'disco segundo'], ['disc3', 'disco terceiro'], ['disc4', 'disco quarto']]
+
+    for (let count = 0; count <= 3; count++) {
+        const disco = document.createElement('div')
+        disco.id = arrIdClass[count][0]
+        disco.className = arrIdClass[count][1]
+        towerStart.appendChild(disco)
+    }
+
+}
 
 // capturar o torre selecionada e verificar o disco do topo e seu tamanho.
 function pegarDisco(evento) {
@@ -58,8 +78,11 @@ function moveDisco (event) {
     if (count > 1){
         let valido = validaMov(move) //funcao para validar o movimento
         if (valido == true) {
-            AdicionarDisco(move)
-            //se for valido, mudar a posição do disco no disco (appendChild)
+            let disco = move[0][2]
+            if (disco !== 'sem disco') {
+                AdicionarDisco(move)
+                //se for valido, mudar a posição do disco no disco (appendChild)
+            }
         }
 
         let contador = document.getElementById('mov')
@@ -83,10 +106,12 @@ function validaMov(move) {
 
     let startDisc = move[0][3]
     let endDisc = move[1][3]
+
     if (endDisc != 0 && startDisc > endDisc) {
         console.log("ERRO: movimento inválido") //adicionar um alerta para o usuário
         return false
     }
+
     return true
 }
 
@@ -124,7 +149,9 @@ function resetGame() {
     place.appendChild(disco4);
 
     const pontos = document.getElementById('mov')
-    pontos.innerHTML = 0;
+    countMovimentos = 0
+    pontos.innerHTML = '0';
+
 
 }
 
@@ -133,8 +160,13 @@ function resetGame() {
 window.onload = main
 function main() {
 
+    criarTorres()
+
+    criarDiscos()
+    
     const towers = document.getElementById('towers')
     towers.addEventListener('click', moveDisco)
 
-    document.getElementById('restart').onclick = resetGame()
+    const restart = document.getElementById('restart')
+    restart.addEventListener('click', resetGame)
 }
