@@ -95,14 +95,19 @@ function pegarDisco(evento) {
 
 // Função para pegar os dois clicks
 function moveDisco (event) {
+    const place = document.getElementById('mensagem')
     move[count] = pegarDisco(event)
     if (count > 1){
         let valido = validaMov(move) //funcao para validar o movimento
         if (valido == true) {
+            place.innerHTML = ""
             let disco = move[0][2]
             if (disco !== 'sem disco') {
                 AdicionarDisco(move)
                 //se for valido, mudar a posição do disco no disco (appendChild)
+            }else{
+                
+                place.innerHTML = "ERRO: movimento inválido"
             }
         }
 
@@ -120,8 +125,13 @@ function moveDisco (event) {
 function validaMov(move) {
     let startTorre = move[0][0].id
     let endTorre = move[1][0].id
+    const place = document.getElementById('mensagem')
     if (startTorre == endTorre){
         console.log("ERRO: movimento inválido") //adicionar um alerta para o usuário
+        place.innerHTML = "ERRO: movimento inválido"
+        // let msg = document.createElement('span')
+        // msg.innerText = "ERRO: movimento inválido"
+        // place.appendChild(msg)
         return false
     }
 
@@ -130,6 +140,10 @@ function validaMov(move) {
 
     if (endDisc != 0 && startDisc > endDisc) {
         console.log("ERRO: movimento inválido") //adicionar um alerta para o usuário
+        place.innerHTML = "ERRO: movimento inválido"
+        // let msg = document.createElement('span')
+        // msg.innerText = "ERRO: movimento inválido"
+        // place.appendChild(msg)
         return false
     }
 
@@ -145,14 +159,15 @@ function AdicionarDisco(move) {
 
 // Função checa se venceu, verificando o numero minimo de movimentos, e verifica as torres
 function checkWinner() {
+    const place = document.getElementById('mensagem')
     let torreFinal = move[1][0]
     let contagemDiscos = torreFinal.childElementCount
     console.log(contagemDiscos)
     if (contagemDiscos == 4) {
-        alert('Winner!')
+        place.innerHTML = "Parabéns! Você venceu!"
         stopTimer()
     } else {
-        alert('Movimentos mínimos utrapassados!')
+        place.innerHTML = "Número máximo de movimentos foi excedido!"
     }
 }
 
@@ -172,11 +187,15 @@ function resetGame() {
     stopTimer()
     const torreStart = document.getElementById('tStart')
     torreStart.addEventListener('click', tempo, {once: true})
+    const timer = document.getElementById('timerID')
+    timer.textContent = "00:00"
 
     const pontos = document.getElementById('mov')
     countMovimentos = 0
     pontos.innerHTML = '0';
 
+    const local = document.getElementById('mensagem')
+    local.innerHTML = ""
 }
 
 ////////////////////// FUNÇÃO PRINCIPAL /////////////////
