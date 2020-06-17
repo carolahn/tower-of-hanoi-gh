@@ -14,7 +14,6 @@ body {
 #main {
     background-color: #ffffff;
     width: 698px;
-    /* min-width: 700px;*/
     min-height: 600px; 
     box-shadow: 4px 4px 4px #666666;
     border: 1px solid #666666;
@@ -26,7 +25,6 @@ body {
 
 /* Cabeçalho */
 #cabecalho {
-    /* background: red; */
     text-align: center;
     padding: 1rem;
 }
@@ -35,13 +33,13 @@ body {
     font-family: 'Piedra', cursive, Arial, sans-serif;
     font-size: 2.5rem;
 }
+
+
 /* Area dos botões para controlar os discos, movimentos e dar restart */
 #buttons {
-    
     display: flex;
     justify-content: space-evenly;
     flex-wrap: nowrap;
-    /* justify-content: center;*/
     align-items: center;
     font-family: Roboto, Arial, sans-serif;
     font-size: 26px;
@@ -73,14 +71,12 @@ body {
     max-width: 698px;
     min-width: 698px;
     margin: 0 auto;
-    /* position: relative; */
 }
 
 .torre {
     width: 200px;
     height: 300px;
     cursor: pointer;
-    /* margin-left: 1rem;  */
     z-index: 2;
 }
 
@@ -95,16 +91,14 @@ div#tStart:hover, div#tOffset:hover, div#tEnd:hover {
     margin-left: 0;
 }
 
-
 #tStart, #tOffset, #tEnd {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
 }
 
-
+/* Área para organizar as barras verticais */
 .barraVertical {
-    /* float: left; */
     width: 10px;
     height: 280px;
     background-color: #000000;
@@ -112,7 +106,7 @@ div#tStart:hover, div#tOffset:hover, div#tEnd:hover {
 }
 
 #barraStart {
-    left: 128px;
+    left: 144px;
     top: 208px;
     z-index: 1;
 }
@@ -124,14 +118,13 @@ div#tStart:hover, div#tOffset:hover, div#tEnd:hover {
 }
 
 #barraEnd {
-    left: 560px;
+    left: 544px;
     top: 208px;
     z-index: 1;
 }
 
-/* Área para base das torre, sem função apenas para decoração; */
+/* Área para base das torres, sem função apenas para decoração; */
 #floor {
-    /* display: flex; */
     justify-content: center;
     align-items: center;
     position: relative;
@@ -140,30 +133,31 @@ div#tStart:hover, div#tOffset:hover, div#tEnd:hover {
 #barStart {
     position: absolute;
     background: black;
-    width: 200px;
+    width: 180px;
     height: 14px;
-    left: 32px;
+    left: 58px;
     top: 0px;
 }
 
 #barOffset {
     position: absolute;
     background: black;
-    width: 200px;
+    width: 180px;
     height: 14px;
-    left: 248px;
+    left: 258px;
     top: 0px;
 }
 
 #barEnd {
     position: absolute;
     background: black;
-    width: 200px;
+    width: 180px;
     height: 14px;
-    left: 465px;
+    left: 460px;
     top: 0px;
 }
 
+/* Área para estilizar os discos */
 .disco {
     height: 20px;
     border-radius: 8px;
@@ -191,6 +185,7 @@ div#tStart:hover, div#tOffset:hover, div#tEnd:hover {
     width: 40px;
 }
 
+/* Área para estilizar o footer */
 footer {
     color: #666666;
     text-align: center;
