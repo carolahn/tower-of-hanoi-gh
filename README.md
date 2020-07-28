@@ -11,19 +11,22 @@ Atividade em dupla realizada na Kenzie Academy Brasil.
 ##### Atividade do curso de Desenvolvimento Full-Stack da [Kenzie Academy](https://kenzie.com.br/) realizada em junho de 2020;
 ##### A aplicação implementa o jogo Torre de Hanoi. O desafio é mudar a torre de coluna colocando sempre discos menores no topo.
 
-![fotos-daqui](https://user-images.githubusercontent.com/62309069/88291101-1ff99100-ccce-11ea-86f7-c02eae16c210.png)
+![towerofhanoi](https://user-images.githubusercontent.com/62309069/88670115-10f25480-d0bb-11ea-978f-36c88aa4d6d6.png)
 
 #### Purpose:
-- to use geolocation, fetch() end .then().
-- utilizar o comando fetch() para buscar imagens do Flickr;
-- utilizar .then() para tratar os dados;
-- exibir as imagens conforme a geolocalização;
-- buscar imagens a partir de uma palavra-chave.
+- to use git, html, css and javascript.
+- utilizar o git para trabalhar em equipe;
+- criar branches, subir arquivos, resolver conflitos de código e realizar merges.
 
 #### Contact:
+
+##### Carolina Ahn:
 - [Linkedin](https://www.linkedin.com/in/carolina-ahn-35ab7473)
 - [Facebook](https://www.facebook.com/carol.ahn.9)
 - [Instagram](https://www.instagram.com/carolahn/?hl=pt)
 - [GitHub](https://github.com/carolahn)
 - [GitLab](http://gitlab.com/ahncarolina)
+
+##### Maicon Lourenço:
+- [Linkedin](https://www.linkedin.com/in/maiconlourenco/)
 
