@@ -2,7 +2,7 @@
 # TORRE DE HANOI
 Atividade em dupla realizada na Kenzie Academy Brasil.
 
-## [LINK](https://carolahn.github.io/tower-of-hanoi-gh/)
+## [LINK - Play now](https://carolahn.github.io/tower-of-hanoi-gh/)
 
 #### About this repository:
 ##### [Kenzie Academy](https://kenzie.com.br/) course activity held in June 2020;
